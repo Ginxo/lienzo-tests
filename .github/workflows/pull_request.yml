@@ -16,12 +16,13 @@ jobs:
         BUILD_CHAIN_VERSION: ${{ matrix.build-chain-version }}
       run: echo "Running build chain for $BUILD_CHAIN_VERSION"
     - name: Build Chain ${{ matrix.build-chain-version }}
-      id: build-chain
+      id: build-chain      
+      env:
+        BUILD_CHAIN_VERSION: ${{ matrix.build-chain-version }}
+        GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
       uses: kiegroup/github-action-build-chain@$BUILD_CHAIN_VERSION
       with:
         parent-dependencies: 'lienzo-core'
         child-dependencies: 'droolsjbpm-build-bootstrap'
         build-command: 'mvn -e -nsu -Dfull -Pwildfly clean install -Prun-code-coverage  -Dcontainer.profile=wildfly -Dcontainer=wildfly -Dintegration-tests=true -Dmaven.test.failure.ignore=true -DjvmArgs="-Xms1g -Xmx4g"'
         build-command-upstream: "mvn -e -T1C clean install -DskipTests -Dgwt.compiler.skip=true -Dgwt.skipCompilation=true -Denforcer.skip=true -Dcheckstyle.skip=true -Dspotbugs.skip=true -Drevapi.skip=true"
-      env:
-          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
