@@ -8,13 +8,13 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        build-chain-version: [openjdk8, openjdk11]
+        build-chain-version: [java8, java11]
     name: Build Pull Request
     steps:
     - uses: actions/checkout@v2
     - name: Build Chain ${{ matrix.build-chain-version }}
       id: build-chain
-      uses: kiegroup/github-action-build-chain@BXMSPROD-912
+      uses: ${{ format('kiegroup/github-action-build-chain@{0}', matrix.build-chain-version) }}
       with:
         buildchain-version: ${{ matrix.build-chain-version }}
         parent-dependencies: 'lienzo-core'
