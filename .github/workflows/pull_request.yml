@@ -15,7 +15,7 @@ jobs:
       id: build-chain   
       uses: kiegroup/github-action-build-chain@BXMSPROD-912
       with:
-        openjdkversion: ${{ matrix.openjdk-version }}
+        openjdk-version: ${{ matrix.openjdk-version }}
         parent-dependencies: 'lienzo-core'
         child-dependencies: 'droolsjbpm-build-bootstrap'
         build-command: 'mvn -e -nsu -Dfull -Pwildfly clean install -Prun-code-coverage  -Dcontainer.profile=wildfly -Dcontainer=wildfly -Dintegration-tests=true -Dmaven.test.failure.ignore=true -DjvmArgs="-Xms1g -Xmx4g"'
