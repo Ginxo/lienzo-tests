@@ -11,9 +11,12 @@ jobs:
     name: Build Pull Request
     steps:
     - uses: actions/checkout@v2
+    - name: Set env variables for ${{ matrix.build-chain-version }}
+      env:
+        BUILD_CHAIN_VERSION: ${{ matrix.build-chain-version }}
     - name: Build Chain ${{ matrix.build-chain-version }}
       id: build-chain
-      uses: kiegroup/github-action-build-chain@${{ matrix.build-chain-version }}
+      uses: kiegroup/github-action-build-chain@$BUILD_CHAIN_VERSION
       with:
         parent-dependencies: 'lienzo-core'
         child-dependencies: 'droolsjbpm-build-bootstrap'
