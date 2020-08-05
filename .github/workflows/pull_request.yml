@@ -6,7 +6,7 @@ jobs:
     name: Build Pull Request openjdk8
     steps:
     - uses: actions/checkout@v2
-    - name: Build Chain openjdk8
+    - name: Build Chain
       id: build-chain
       uses: kiegroup/github-action-build-chain@java8
       with:
@@ -21,7 +21,7 @@ jobs:
     name: Build Pull Request openjdk11
     steps:
     - uses: actions/checkout@v2
-    - name: Build Chain openjdk8
+    - name: Build Chain
       id: build-chain
       uses: kiegroup/github-action-build-chain@java11
       with:
