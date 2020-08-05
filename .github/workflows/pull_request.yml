@@ -10,7 +10,7 @@ jobs:
     - uses: actions/checkout@v2
     - name: Build Chain
       id: build-chain
-      uses: kiegroup/github-action-build-chain@java8
+      uses: kiegroup/github-action-build-chain@openjdk8
       with:
         parent-dependencies: 'lienzo-core'
         child-dependencies: 'droolsjbpm-build-bootstrap'
@@ -25,7 +25,7 @@ jobs:
     - uses: actions/checkout@v2
     - name: Build Chain
       id: build-chain
-      uses: kiegroup/github-action-build-chain@java11
+      uses: kiegroup/github-action-build-chain@openjdk8
       with:
         parent-dependencies: 'lienzo-core'
         child-dependencies: 'droolsjbpm-build-bootstrap'
