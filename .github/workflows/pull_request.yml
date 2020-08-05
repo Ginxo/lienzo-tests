@@ -14,6 +14,7 @@ jobs:
     - name: Set env variables for ${{ matrix.build-chain-version }}
       env:
         BUILD_CHAIN_VERSION: ${{ matrix.build-chain-version }}
+      run: echo "Running build chain for $BUILD_CHAIN_VERSION"
     - name: Build Chain ${{ matrix.build-chain-version }}
       id: build-chain
       uses: kiegroup/github-action-build-chain@$BUILD_CHAIN_VERSION
