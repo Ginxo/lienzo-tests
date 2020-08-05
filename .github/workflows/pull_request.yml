@@ -1,3 +1,4 @@
+ 
 name: Build Chain [pull request]
 
 on: [pull_request]
@@ -13,9 +14,9 @@ jobs:
     - uses: actions/checkout@v2
     - name: Build Chain ${{ matrix.build-chain-version }}
       id: build-chain
-      uses: docker://ginxo/github-action-build-chain:${{ matrix.build-chain-version }}
+      uses: kiegroup/github-action-build-chain@BXMSPROD-912
       with:
-        buildchainversion: ${{ matrix.build-chain-version }}
+        buildchain-version: ${{ matrix.build-chain-version }}
         parent-dependencies: 'lienzo-core'
         child-dependencies: 'droolsjbpm-build-bootstrap'
         build-command: 'mnv clean | mvn -e -nsu -Dfull -Pwildfly clean install -Prun-code-coverage  -Dcontainer.profile=wildfly -Dcontainer=wildfly -Dintegration-tests=true -Dmaven.test.failure.ignore=true -DjvmArgs="-Xms1g -Xmx4g"'
