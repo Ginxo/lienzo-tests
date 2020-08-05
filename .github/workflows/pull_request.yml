@@ -7,13 +7,13 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        java-version: [8, 11]
+        build-chain-version: [java8, java11]
     name: Build Pull Request
     steps:
     - uses: actions/checkout@v2
-    - name: Build Chain ${{ matrix.java-version }}
+    - name: Build Chain ${{ matrix.build-chain-version }}
       id: build-chain
-      uses: kiegroup/github-action-build-chain@java${{ matrix.java-version }}
+      uses: kiegroup/github-action-build-chain@${{ matrix.build-chain-version }}
       with:
         parent-dependencies: 'lienzo-core'
         child-dependencies: 'droolsjbpm-build-bootstrap'
