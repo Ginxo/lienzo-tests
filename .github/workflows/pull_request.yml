@@ -7,15 +7,15 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        openjdk-version: [8, 11]
+        build-chain-version: [openjdk8, openjdk11]
     name: Build Pull Request
     steps:
     - uses: actions/checkout@v2
-    - name: Build Chain ${{ matrix.openjdk-version }}
+    - name: Build Chain ${{ matrix.build-chain-version }}
       id: build-chain   
       uses: kiegroup/github-action-build-chain@BXMSPROD-912
       with:
-        openjdk-version: ${{ matrix.openjdk-version }}
+        build-chain-version: ${{ matrix.build-chain-version }}
         parent-dependencies: 'lienzo-core'
         child-dependencies: 'droolsjbpm-build-bootstrap'
         build-command: 'mvn -e -nsu -Dfull -Pwildfly clean install -Prun-code-coverage  -Dcontainer.profile=wildfly -Dcontainer=wildfly -Dintegration-tests=true -Dmaven.test.failure.ignore=true -DjvmArgs="-Xms1g -Xmx4g"'
