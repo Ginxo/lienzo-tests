@@ -1,4 +1,4 @@
-name: Build Chain
+name: Build Chain.
 
 on: [pull_request]
 
