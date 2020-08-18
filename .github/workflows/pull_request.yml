@@ -7,7 +7,7 @@ jobs:
     name: Build Images
     strategy:
       matrix:
-        images: ["kogito-quarkus-ubi8", "kogito-quarkus-jvm-ubi8", "kogito-quarkus-ubi8-s2i", "kogito-springboot-ubi8", "kogito-springboot-ubi8-s2i", "kogito-data-index", "kogito-trusty", "kogito-explainability", "kogito-jobs-service", "kogito-management-console"]
+        images: ["abcd", "1234"]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
