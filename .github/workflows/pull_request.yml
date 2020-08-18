@@ -17,5 +17,6 @@ jobs:
         with:
           build-command: "echo ${{ matrix.images }}"
           workflow-file-name: "pull_request.yml"
+          matrix-variables: "matrix.images:${{ matrix.images }}"
         env:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
