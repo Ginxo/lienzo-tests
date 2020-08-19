@@ -19,6 +19,12 @@ jobs:
         workflow-file-name: "pull_request.yml"
       env:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+    - name: Upload Artifacts
+      id: upload-artifacts      
+      uses: actions/download-artifact@v2
+      with:
+        name: lienzo-core.jar
+        path: ./**/lienzo-core-*.jar
   build-chain-openjdk11:
     runs-on: ubuntu-latest
     name: Pull Request openjdk11
@@ -35,3 +41,9 @@ jobs:
         workflow-file-name: "pull_request.yml"
       env:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+    - name: Upload Artifacts
+      id: upload-artifacts      
+      uses: actions/download-artifact@v2
+      with:
+        name: lienzo-core.jar
+        path: ./**/lienzo-core-*.jar
