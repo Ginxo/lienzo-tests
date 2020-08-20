@@ -10,7 +10,7 @@ jobs:
         os: [ubuntu-latest, windows-latest, macos-latest]
         javaVersion: [8, 9, 10, 11, 12, 13]
     runs-on: ${{ matrix.os }}
-    name: Pull Request openjdk${{ matrix.javaVersion }}
+    name: Pull Request openjdk${{ matrix.javaVersion }}/${{ matrix.os }}
     steps:
     - name: Set up JDK ${{ matrix.javaVersion }}
       uses: actions/setup-java@v1
