@@ -15,7 +15,7 @@ jobs:
       id: build-chain
       uses: kiegroup/github-action-build-chain@BXMSPROD-956
       with:
-        parent-dependencies: 'lienzo-tests'
+        parent-dependencies: 'lienzo-core'
         child-dependencies: 'droolsjbpm-build-bootstrap'
         build-command: |
           echo "command 1"
