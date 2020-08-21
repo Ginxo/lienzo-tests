@@ -13,8 +13,8 @@ jobs:
       uses: kiegroup/github-action-build-chain@openjdk8
       with:
         parent-dependencies: 'lienzo-core'
-        child-dependencies: 'droolsjbpm-build-bootstrap'
-        build-command: 'mvn -e -nsu -Dfull -Pwildfly clean install -Prun-code-coverage  -Dcontainer.profile=wildfly -Dcontainer=wildfly -Dintegration-tests=true -Dmaven.test.failure.ignore=true -DjvmArgs="-Xms1g -Xmx4g"'
+        child-dependencies: 'drools-wb'
+        build-command: 'mvn -e -nsu -Dfull clean install -Prun-code-coverage -Pwildfly -Dcontainer=wildfly -Dcontainer.profile=wildfly -Dintegration-tests=true -Dmaven.test.failure.ignore=true -Dwebdriver.firefox.bin=/opt/tools/firefox-60esr/firefox-bin -DjvmArgs="-Xms1g -Xmx5g"'
         build-command-upstream: "mvn -e -T1C clean install -DskipTests -Dgwt.compiler.skip=true -Dgwt.skipCompilation=true -Denforcer.skip=true -Dcheckstyle.skip=true -Dspotbugs.skip=true -Drevapi.skip=true"
         workflow-file-name: "pull_request.yml"
       env:
@@ -29,8 +29,8 @@ jobs:
       uses: kiegroup/github-action-build-chain@openjdk11
       with:
         parent-dependencies: 'lienzo-core'
-        child-dependencies: 'droolsjbpm-build-bootstrap'
-        build-command: 'mvn -e -nsu -Dfull -Pwildfly clean install -Prun-code-coverage  -Dcontainer.profile=wildfly -Dcontainer=wildfly -Dintegration-tests=true -Dmaven.test.failure.ignore=true -DjvmArgs="-Xms1g -Xmx4g"'
+        child-dependencies: 'drools-wb'
+        build-command: 'mvn -e -nsu -Dfull clean install -Prun-code-coverage -Pwildfly -Dcontainer=wildfly -Dcontainer.profile=wildfly -Dintegration-tests=true -Dmaven.test.failure.ignore=true -Dwebdriver.firefox.bin=/opt/tools/firefox-60esr/firefox-bin -DjvmArgs="-Xms1g -Xmx5g"'
         build-command-upstream: "mvn -e -T1C clean install -DskipTests -Dgwt.compiler.skip=true -Dgwt.skipCompilation=true -Denforcer.skip=true -Dcheckstyle.skip=true -Dspotbugs.skip=true -Drevapi.skip=true"
         workflow-file-name: "pull_request.yml"
       env:
