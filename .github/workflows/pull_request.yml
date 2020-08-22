@@ -23,6 +23,5 @@ jobs:
         archive-artifacts-path: |
           ./**/lienzo-tests-*SNAPSHOT.jar
           ./**/lienzo-tests-*sources*.jar
-        archive-artifacts-name: lienzo-tests
       env:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
