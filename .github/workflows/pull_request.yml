@@ -13,7 +13,7 @@ jobs:
         java-version: 1.8
     - name: Build Chain
       id: build-chain
-      uses: kiegroup/github-action-build-chain@promise_all_settled
+      uses: kiegroup/github-action-build-chain@BXMSPROD-982
       with:
         parent-dependencies: 'lienzo-core'
         child-dependencies: 'droolsjbpm-build-bootstrap'
